@@ -1,4 +1,4 @@
-package com.peargrammers.pacetracker.android
+package com.peargrammers.pacetracker.android.ui.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.ui.Modifier
+import com.peargrammers.pacetracker.android.ui.screens.TrainingFormScreen
 import com.peargrammers.pacetracker.android.ui.screens.TrainingScreen
 import com.peargrammers.pacetracker.android.ui.theme.PaceTrackerTheme
 
@@ -25,7 +26,8 @@ class MainActivity : ComponentActivity() {
 //                        InfoTextField("A to jest mój dłuższy tekst, który ma więcej wyrazów i dwie linijki ")
 //                        InfoTextField("A to jest mój jeszcze dłuższy tekst, który ma jeszcze więcej wyrazów i aż trzy linijki, czyli o jedną więcej niż poprzedni")
 //
-                        TrainingScreen()
+//                        TrainingScreen()
+                        TrainingFormScreen()
                     }
                 }
             }
