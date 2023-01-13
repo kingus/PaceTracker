@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.ui.Modifier
-import com.peargrammers.pacetracker.android.ui.screens.TrainingFormScreen
-import com.peargrammers.pacetracker.android.ui.screens.TrainingScreen
+import androidx.navigation.compose.rememberNavController
+import com.peargrammers.pacetracker.android.ui.navigation.NavigationGraph
 import com.peargrammers.pacetracker.android.ui.theme.PaceTrackerTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,14 +20,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
                 ) {
                     Column {
-//                        CustomTextField("Phone number", modifier = Modifier.fillMaxWidth())
-//                        RoundedIcon()
-//                        InfoTextField("To jest mój tekst")
-//                        InfoTextField("A to jest mój dłuższy tekst, który ma więcej wyrazów i dwie linijki ")
-//                        InfoTextField("A to jest mój jeszcze dłuższy tekst, który ma jeszcze więcej wyrazów i aż trzy linijki, czyli o jedną więcej niż poprzedni")
-//
-//                        TrainingScreen()
-                        TrainingFormScreen()
+                        val navController = rememberNavController()
+                        NavigationGraph(navController = navController)
                     }
                 }
             }
