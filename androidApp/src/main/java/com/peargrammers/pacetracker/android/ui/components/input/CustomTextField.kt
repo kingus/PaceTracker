@@ -14,8 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import com.peargrammers.pacetracker.android.ui.theme.IntenseOrange
 import com.peargrammers.pacetracker.android.ui.theme.LightGrey
-import com.peargrammers.pacetracker.android.ui.theme.Red
 import com.peargrammers.pacetracker.android.ui.theme.spacing
 
 
@@ -26,7 +26,7 @@ fun CustomTextField(labelText: String, unit: String) {
         mutableStateOf("")
     }
 
-    val colorPrimary = Red
+    val colorPrimary = IntenseOrange
     val lightGrey = LightGrey
 
     OutlinedTextField(value = textValue.value,
