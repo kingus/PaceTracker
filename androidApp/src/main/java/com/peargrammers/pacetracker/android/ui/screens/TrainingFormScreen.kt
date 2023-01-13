@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.peargrammers.pacetracker.android.ui.components.CustomButton
 import com.peargrammers.pacetracker.android.ui.components.input.CustomTextField
-import com.peargrammers.pacetracker.android.ui.navigation.Screen
+import com.peargrammers.pacetracker.android.navigation.Screen
 
 @Composable
 fun TrainingFormScreen(navController: NavController) {
