@@ -1,6 +1,6 @@
 package com.peargrammers.pacetracker.android.di
 
-import com.peargrammers.pacetracker.android.service.LocationService
+//import com.peargrammers.pacetracker.android.service.LocationService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,8 +12,8 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    @Provides
-    @Singleton
-    fun provideLocationService(
-    ) = LocationService()
+//    @Provides
+//    @Singleton
+//    fun provideLocationService(
+//    ) = LocationService()
 }
