@@ -19,7 +19,7 @@ import com.peargrammers.pacetracker.android.ui.theme.LightGrey
 import com.peargrammers.pacetracker.android.ui.theme.Red
 
 @Composable
-fun PlayButton(modifier: Modifier) {
+fun PlayButton(modifier: Modifier, onClick: () -> Unit) {
 
     val state = remember {
         mutableStateOf(false)
@@ -43,6 +43,7 @@ fun PlayButton(modifier: Modifier) {
             .background(Red)
             .clickable {
                 state.value = !state.value
+                onClick()
             }
     ) {
         Image(
