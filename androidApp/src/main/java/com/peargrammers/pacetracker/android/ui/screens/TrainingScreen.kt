@@ -23,7 +23,10 @@ import com.peargrammers.pacetracker.android.utils.Constants.ACTION_SERVICE_START
 import com.peargrammers.pacetracker.android.utils.Constants.ACTION_SERVICE_STOP
 
 @Composable
-fun TrainingScreen(navController: NavController, viewModel: TrainingViewModel = hiltViewModel()) {
+fun TrainingScreen(
+    navController: NavController,
+    viewModel: TrainingViewModel = hiltViewModel()
+) {
     val context = LocalContext.current
 
     val currentState = remember { mutableStateOf(LocationService.State.Stopped) }
@@ -32,9 +35,11 @@ fun TrainingScreen(navController: NavController, viewModel: TrainingViewModel = 
         currentState.value = state
     }
 
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .background(LightGrey)) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(LightGrey)
+    ) {
         TimeDistanceCard(viewModel)
         PaceCard(viewModel)
         ChangeableCircleButton(

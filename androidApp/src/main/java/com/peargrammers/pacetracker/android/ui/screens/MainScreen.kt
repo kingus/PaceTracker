@@ -14,7 +14,7 @@ import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.navigation.NavController
-import com.peargrammers.pacetracker.android.navigation.Screen
+import com.peargrammers.pacetracker.android.navigation.bottom.Screen
 import com.peargrammers.pacetracker.android.permissions.PermissionsValidator
 
 @Composable
