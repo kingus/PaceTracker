@@ -54,5 +54,9 @@ dependencies {
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
     implementation("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0")
+    implementation("com.google.android.gms:play-services-location:15.0.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
+
 }

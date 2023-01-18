@@ -19,6 +19,7 @@ import com.peargrammers.pacetracker.android.permissions.PermissionsValidator
 
 @Composable
 fun MainScreen(navController: NavController) {
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxSize()
     ) {
