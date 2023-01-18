@@ -2,7 +2,7 @@ CREATE TABLE stageEntity(
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     targetPace INTEGER NOT NULL,
     distance INTEGER NOT NULL,
-    statusfrequency INTEGER NOT NULL,
+    statusFrequency INTEGER NOT NULL,
     repeat INTEGER NOT NULL
 );
 
@@ -21,7 +21,7 @@ INTO stageEntity(
     id,
     targetPace,
     distance,
-    statusfrequency,
+    statusFrequency,
     repeat
 ) VALUES (?, ?, ?, ?, ?);
 
