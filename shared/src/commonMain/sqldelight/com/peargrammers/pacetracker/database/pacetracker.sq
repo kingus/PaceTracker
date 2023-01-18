@@ -1,0 +1,30 @@
+CREATE TABLE stageEntity(
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    targetPace INTEGER NOT NULL,
+    distance INTEGER NOT NULL,
+    statusfrequency INTEGER NOT NULL,
+    repeat INTEGER NOT NULL
+);
+
+getAllStages:
+SELECT *
+FROM stageEntity;
+
+getStageById:
+SELECT *
+FROM stageEntity
+WHERE id = ?;
+
+insertStage:
+INSERT OR REPLACE
+INTO stageEntity(
+    id,
+    targetPace,
+    distance,
+    statusfrequency,
+    repeat
+) VALUES (?, ?, ?, ?, ?);
+
+deleteStageById:
+DELETE FROM stageEntity
+WHERE id = ?;
