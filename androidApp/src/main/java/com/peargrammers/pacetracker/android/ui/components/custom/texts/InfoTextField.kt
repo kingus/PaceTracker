@@ -1,4 +1,4 @@
-package com.peargrammers.pacetracker.android.ui.components
+package com.peargrammers.pacetracker.android.ui.components.custom.texts
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

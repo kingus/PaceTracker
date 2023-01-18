@@ -10,15 +10,18 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.observe
 import com.peargrammers.pacetracker.android.TrainingViewModel
 import com.peargrammers.pacetracker.android.R
+import com.peargrammers.pacetracker.android.ui.components.custom.texts.TextWithIcon
 import com.peargrammers.pacetracker.android.ui.theme.*
 
 @Composable
@@ -36,92 +39,47 @@ fun TimeDistanceCard(viewModel: TrainingViewModel) {
             .height(200.dp)
             .padding(MaterialTheme.spacing.medium),
         shape = RoundedCornerShape(MaterialTheme.spacing.extraLarge),
-        backgroundColor = LightGrey,
+        backgroundColor = Color.White,
         elevation = 1.dp,
     ) {
         Row(
             modifier = Modifier
                 .padding(10.dp)
-                .fillMaxSize()
+                .fillMaxSize(),
+            verticalAlignment = CenterVertically,
+            horizontalArrangement = Arrangement.Center
         ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth(fraction = 0.5f)
-                    .fillMaxHeight()
-                    .padding(10.dp)
-
-            ) {
-                Row(
-                    modifier = Modifier
-                        .padding(10.dp)
-                        .fillMaxWidth()
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.ic_timer),
-                        "Info",
-                        modifier = Modifier
-                            .padding(MaterialTheme.spacing.small)
-                            .size(16.dp)
-                    )
-                    Text(
-                        text = "Time",
-                        style = MaterialTheme.typography.body1,
-                        modifier = Modifier.align(CenterVertically)
-                    )
-                }
-                Row(
-                    modifier = Modifier.fillMaxSize(),
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    Text(
-                        text = "00:00:00",
-                        textAlign = TextAlign.Center,
-                        style = MaterialTheme.typography.h2,
-                    )
-                }
-
-            }
+            ColumnItem("Time", "00:00:01", modifier = Modifier.weight(1f), R.drawable.ic_timer)
             Divider(
                 modifier = Modifier
-                    .height(190.dp)
-                    .width(1.dp)
+                    .height(120.dp)
+                    .width(1.dp),
+                color = LightGrey
+
             )
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight()
-                    .padding(10.dp)
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(10.dp)
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.ic_timer),
-                        "Info",
-                        modifier = Modifier
-                            .padding(MaterialTheme.spacing.small)
-                            .size(16.dp)
-                    )
-                    Text(
-                        text = "Distance",
-                        style = MaterialTheme.typography.body1,
-                        modifier = Modifier.align(CenterVertically)
-                    )
-                }
-                Row(
-                    modifier = Modifier.fillMaxSize(),
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    Text(
-                        text = distanceValue.value.toString(),
-                        style = MaterialTheme.typography.h2,
-                    )
-                }
+            ColumnItem("Distance", "0", modifier = Modifier.weight(1f), R.drawable.ic_walk)
 
-            }
+        }
+    }
+}
 
+@Composable
+fun ColumnItem(label: String, value: String, modifier: Modifier, icon: Int) {
+    Column(
+        modifier = modifier
+            .fillMaxHeight()
+            .fillMaxHeight()
+            .padding(10.dp)
+    ) {
+        TextWithIcon(label = label, icon)
+        Row(
+            modifier = Modifier.fillMaxSize(),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = value,
+                style = MaterialTheme.typography.h2,
+            )
         }
     }
 }

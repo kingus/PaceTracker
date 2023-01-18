@@ -1,4 +1,4 @@
-package com.peargrammers.pacetracker.android.ui.components.training
+package com.peargrammers.pacetracker.android.ui.components.custom.buttons
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -12,27 +12,31 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
-import com.peargrammers.pacetracker.android.R
+import com.peargrammers.pacetracker.android.ui.theme.IntenseOrange
 import com.peargrammers.pacetracker.android.ui.theme.LightGrey
-import com.peargrammers.pacetracker.android.ui.theme.Red
 
 @Composable
-fun PlayButton(modifier: Modifier, onClick: () -> Unit) {
+fun ChangeableCircleButton(
+    modifier: Modifier,
+    onClick: () -> Unit,
+    positiveStateImage: Painter,
+    negativeStateImage: Painter
+) {
 
     val state = remember {
         mutableStateOf(false)
     }
 
     val image = remember {
-        mutableStateOf(R.drawable.ic_play_arrow)
+        mutableStateOf(positiveStateImage)
     }
 
     if (state.value) {
-        image.value = R.drawable.ic_stop
+        image.value = negativeStateImage
     } else {
-        image.value = R.drawable.ic_play_arrow
+        image.value = positiveStateImage
     }
 
     Box(
@@ -40,20 +44,19 @@ fun PlayButton(modifier: Modifier, onClick: () -> Unit) {
             .shadow(10.dp, RoundedCornerShape(50.dp))
             .size(100.dp)
             .clip(RoundedCornerShape(50.dp))
-            .background(Red)
+            .background(IntenseOrange)
             .clickable {
                 state.value = !state.value
                 onClick()
             }
     ) {
         Image(
-            painter = painterResource(image.value),
+            painter = image.value,
             contentDescription = null,
             colorFilter = ColorFilter.tint(LightGrey),
             modifier = modifier
                 .aspectRatio(1f, matchHeightConstraintsFirst = true)
                 .padding(16.dp)
-
         )
     }
 }

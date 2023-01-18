@@ -1,25 +1,23 @@
 package com.peargrammers.pacetracker.android.ui.screens
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
-import com.peargrammers.pacetracker.android.ui.components.CustomButton
-import com.peargrammers.pacetracker.android.ui.components.input.CustomTextField
-import com.peargrammers.pacetracker.android.navigation.Screen
+import com.peargrammers.pacetracker.android.ui.components.custom.buttons.CustomButton
+import com.peargrammers.pacetracker.android.ui.components.form.TrainingGroupCard
 
 @Composable
-fun TrainingFormScreen(navController: NavController) {
+fun TrainingFormScreen(onConfirmClick: () -> Unit, onClick: () -> Unit) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        CustomTextField("Distance", "km")
-        CustomTextField("Target pace", "km/h")
+        Column(modifier = Modifier.weight(1f)) {
+            TrainingGroupCard(onClick)
+        }
         CustomButton(
-            onClick = { navController.navigate(Screen.TrainingScreen.route) },
+            onClick = { onConfirmClick() },
             label = "Confirm"
         )
     }
