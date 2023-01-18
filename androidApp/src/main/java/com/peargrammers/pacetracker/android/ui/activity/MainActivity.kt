@@ -10,13 +10,17 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.peargrammers.pacetracker.android.navigation.NavigationGraph
+import com.peargrammers.pacetracker.android.navigation.bottom.BottomBar
+import com.peargrammers.pacetracker.android.navigation.bottom.BottomNavGraph
 import com.peargrammers.pacetracker.android.service.LocationService
 import com.peargrammers.pacetracker.android.ui.theme.PaceTrackerTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -58,17 +62,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             PaceTrackerTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
-                ) {
-                    Column {
+                val navController = rememberNavController()
+                Scaffold(bottomBar = { BottomBar(navController = navController) }) { paddingValues ->
+//                    bottomBar = { BottomBar(navController = navController) }) { paddingValues ->
+                    Column(modifier = Modifier.padding(paddingValues)) {
+                        NavigationGraph(navController = navController)
 
-                        if (isBound) {
-                            val navController = rememberNavController()
-                            NavigationGraph(navController = navController)
-
-                        }
                     }
+
                 }
             }
         }
