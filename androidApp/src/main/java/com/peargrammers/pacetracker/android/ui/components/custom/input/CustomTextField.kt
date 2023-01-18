@@ -1,4 +1,4 @@
-package com.peargrammers.pacetracker.android.ui.components.input
+package com.peargrammers.pacetracker.android.ui.components.custom.input
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -32,7 +32,7 @@ fun CustomTextField(labelText: String, unit: String) {
     OutlinedTextField(value = textValue.value,
         modifier = Modifier
             .width(350.dp)
-            .padding(MaterialTheme.spacing.small),
+            .padding(MaterialTheme.spacing.extraSmall),
         shape = RoundedCornerShape(25.dp),
         maxLines = 1,
         trailingIcon = {

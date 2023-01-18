@@ -11,6 +11,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -19,6 +20,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.observe
 import com.peargrammers.pacetracker.android.TrainingViewModel
 import com.peargrammers.pacetracker.android.R
+import com.peargrammers.pacetracker.android.ui.components.custom.texts.TextWithIcon
 import com.peargrammers.pacetracker.android.ui.theme.*
 
 @Composable
@@ -30,38 +32,25 @@ fun PaceCard(viewModel: TrainingViewModel = hiltViewModel()) {
         paceValue.value = state
     }
 
-
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .height(250.dp)
             .padding(MaterialTheme.spacing.medium),
         shape = RoundedCornerShape(MaterialTheme.spacing.extraLarge),
-        backgroundColor = LightGrey,
+        backgroundColor = Color.White,
         elevation = 1.dp
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(30.dp)
+                .padding(20.dp, 20.dp)
         ) {
-            Row(verticalAlignment = CenterVertically, horizontalArrangement = Arrangement.Center) {
-                Image(
-                    painter = painterResource(id = R.drawable.ic_speed),
-                    "Info", modifier = Modifier
-                        .padding(MaterialTheme.spacing.small)
-                        .size(16.dp)
-                )
-                Text(
-                    text = "Pace",
-                    style = MaterialTheme.typography.body1,
-                    modifier = Modifier.align(CenterVertically)
-                )
-            }
+            TextWithIcon(label = "Pace", icon = R.drawable.ic_speed)
 
             Text(
-                text = paceValue.value.toString(),
-                style = MaterialTheme.typography.h2,
+                text = paceValue.value ?: "0.0",
+                style = MaterialTheme.typography.h1,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth()
             )

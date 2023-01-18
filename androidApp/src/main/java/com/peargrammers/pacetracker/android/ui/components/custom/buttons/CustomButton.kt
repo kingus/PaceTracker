@@ -1,4 +1,4 @@
-package com.peargrammers.pacetracker.android.ui.components
+package com.peargrammers.pacetracker.android.ui.components.custom.buttons
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -14,17 +14,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.peargrammers.pacetracker.android.ui.theme.IntenseOrange
-import com.peargrammers.pacetracker.android.ui.theme.spacing
 
 @Composable
-fun CustomButton(onClick: () -> Unit, label: String = "Click me") {
+fun CustomButton(onClick: () -> Unit, label: String = "Click me", modifier: Modifier = Modifier) {
     Button(
-        onClick = onClick, modifier =
-        Modifier
-            .width(350.dp)
+        onClick = onClick,
+        modifier = modifier
+            .padding(0.dp, 10.dp)
             .height(70.dp)
-            .padding(MaterialTheme.spacing.small),
-        shape = RoundedCornerShape(25.dp),
+            .width(350.dp),
+        shape = RoundedCornerShape(40.dp),
         colors = ButtonDefaults.buttonColors(backgroundColor = IntenseOrange)
 
     ) {

@@ -2,7 +2,7 @@ package com.peargrammers.pacetracker.android.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val PrimaryColor = Color(0xffed9b40)
+val PrimaryColor = Color(0xFFFA901B)
 val DarkPrimaryColor = Color(0xFFFA901B)
 
 val TextPrimary = Color(0xFF161616)

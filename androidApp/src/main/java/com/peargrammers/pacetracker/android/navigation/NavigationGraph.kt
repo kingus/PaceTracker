@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.peargrammers.pacetracker.android.ui.screens.MainScreen
+import com.peargrammers.pacetracker.android.ui.screens.RunPeriodForm
 import com.peargrammers.pacetracker.android.ui.screens.TrainingFormScreen
 import com.peargrammers.pacetracker.android.ui.screens.TrainingScreen
 
@@ -20,6 +21,9 @@ fun NavigationGraph(navController: NavHostController) {
         }
         composable(route = Screen.MainScreen.route) {
             MainScreen(navController = navController)
+        }
+        composable(route = Screen.RunPeriodForm.route) {
+            RunPeriodForm(navController = navController)
         }
     }
 }
