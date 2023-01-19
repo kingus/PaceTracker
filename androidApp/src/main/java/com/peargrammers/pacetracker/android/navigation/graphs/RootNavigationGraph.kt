@@ -11,9 +11,9 @@ fun RootNavigationGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
         route = Graph.ROOT,
-        startDestination = Graph.TRAINING
+        startDestination = Graph.HOME
     ) {
-        trainingNavGraph(navController = navController)
+//        trainingNavGraph(navController = navController)
         composable(route = Graph.HOME) {
             HomeScreen()
         }

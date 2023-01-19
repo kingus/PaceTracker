@@ -5,14 +5,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
+import com.peargrammers.pacetracker.android.ui.components.custom.buttons.CustomButton
 
 @Composable
-fun SettingsScreen(navController: NavController) {
+fun SettingsScreen(onClick: () -> Unit) {
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxSize()
     ) {
-
+        CustomButton(onClick = onClick, "Go to training", modifier = Modifier)
     }
+
 }

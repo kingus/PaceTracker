@@ -8,6 +8,9 @@ val DarkPrimaryColor = Color(0xFFFA901B)
 val TextPrimary = Color(0xFF161616)
 val DarkTextPrimary = Color(0xFFF8F8F8)
 
+val BackgroundPrimary = Color(0xFFF8F8F8)
+val DarkBackgroundPrimary = Color(0xFF161616)
+
 val TextSecondary = Color(0xFF5C5C5C)
 val DarkTextSecondary = Color(0xFFC3C3C3)
 

@@ -19,7 +19,11 @@ fun HomeNavGraph(navController: NavHostController) {
             ProfileScreen(navController = navController)
         }
         composable(route = BottomBarScreen.Settings.route) {
-            SettingsScreen(navController = navController)
+            SettingsScreen(onClick = {
+                navController.navigate(Graph.TRAINING)
+            })
         }
+        trainingNavGraph(navController = navController)
+
     }
 }

@@ -8,18 +8,16 @@ import android.os.Bundle
 import android.os.IBinder
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.*
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.peargrammers.pacetracker.android.navigation.NavigationGraph
 import com.peargrammers.pacetracker.android.navigation.graphs.RootNavigationGraph
 import com.peargrammers.pacetracker.android.service.LocationService
+import com.peargrammers.pacetracker.android.ui.theme.BackgroundPrimary
 import com.peargrammers.pacetracker.android.ui.theme.PaceTrackerTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -61,7 +59,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             PaceTrackerTheme {
                 val navController = rememberNavController()
-                Column() {
+                Column(
+                    modifier = Modifier.background(
+                        BackgroundPrimary
+                    )
+                ) {
                     RootNavigationGraph(navController = navController)
                 }
             }
