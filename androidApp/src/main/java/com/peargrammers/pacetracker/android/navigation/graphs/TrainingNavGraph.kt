@@ -21,6 +21,9 @@ fun NavGraphBuilder.trainingNavGraph(navController: NavHostController) {
                 onClick = {
                     navController.navigate(TrainingScreen.TrainingRunPeriodForm.route)
                 },
+                onClickRun = {
+                    navController.navigate(TrainingScreen.Training.route)
+                },
                 onConfirmClick = {
 //                    navController.popBackStack()
                     navController.navigate(Graph.HOME)

@@ -8,7 +8,7 @@ import com.peargrammers.pacetracker.android.ui.components.custom.buttons.CustomB
 import com.peargrammers.pacetracker.android.ui.components.form.TrainingGroupCard
 
 @Composable
-fun TrainingFormScreen(onConfirmClick: () -> Unit, onClick: () -> Unit) {
+fun TrainingFormScreen(onConfirmClick: () -> Unit, onClickRun: () -> Unit, onClick: () -> Unit) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -17,8 +17,8 @@ fun TrainingFormScreen(onConfirmClick: () -> Unit, onClick: () -> Unit) {
             TrainingGroupCard(onClick)
         }
         CustomButton(
-            onClick = { onConfirmClick() },
-            label = "Confirm"
+            onClick = { onClickRun() },
+            label = "Go to run"
         )
     }
 }
