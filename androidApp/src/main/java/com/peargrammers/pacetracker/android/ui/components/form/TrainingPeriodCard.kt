@@ -27,7 +27,7 @@ fun TrainingPeriodCard() {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(20.dp, 30.dp),
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.SpaceEvenly,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             CustomTextField("Distance", "km")

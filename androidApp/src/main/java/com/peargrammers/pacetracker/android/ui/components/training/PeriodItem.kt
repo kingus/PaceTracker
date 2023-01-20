@@ -8,9 +8,7 @@ import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.Bottom
-import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
@@ -29,8 +27,8 @@ fun PeriodItem(runPeriod: RunPeriod, onClickItem: () -> Unit) {
             .fillMaxWidth()
             .height(120.dp)
             .padding(MaterialTheme.spacing.small)
-            .clickable{onClickItem()
-                      println("BLA")
+            .clickable {
+                onClickItem()
             },
         shape = RoundedCornerShape(MaterialTheme.spacing.medium),
         backgroundColor = Color.White,
