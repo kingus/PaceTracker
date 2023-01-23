@@ -4,8 +4,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
-import com.peargrammers.pacetracker.android.navigation.bottom.Screen
 import com.peargrammers.pacetracker.android.ui.components.custom.buttons.CustomButton
 import com.peargrammers.pacetracker.android.ui.components.custom.input.CustomTextField
 

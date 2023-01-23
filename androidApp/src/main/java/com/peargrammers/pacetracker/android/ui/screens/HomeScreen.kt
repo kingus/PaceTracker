@@ -8,7 +8,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
@@ -33,8 +32,8 @@ fun HomeScreen(navController: NavHostController = rememberNavController()) {
 @Composable
 fun BottomBar(navController: NavHostController) {
     val screens = listOf(
-        BottomBarScreen.Profile,
-        BottomBarScreen.Settings)
+        BottomBarScreen.Home, BottomBarScreen.Settings, BottomBarScreen.Workouts
+    )
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
@@ -42,18 +41,17 @@ fun BottomBar(navController: NavHostController) {
     val bottomBarDestination = screens.any { it.route == currentDestination?.route }
     if (bottomBarDestination) {
         Box(modifier = Modifier.fillMaxWidth()) {
-            BottomNavigation(
-                modifier = Modifier
-                    .align(alignment = Alignment.BottomCenter)
-                    .padding(0.dp, 10.dp)
-                    .height(60.dp)
-                    .fillMaxWidth(0.9f)
-                    .graphicsLayer {
-                        shape = RoundedCornerShape(
-                            topStart = 20.dp, topEnd = 20.dp, bottomStart = 20.dp, bottomEnd = 20.dp
-                        )
-                        clip = true
-                    }) {
+            BottomNavigation(modifier = Modifier
+                .align(alignment = Alignment.BottomCenter)
+                .padding(0.dp, 10.dp)
+                .height(60.dp)
+                .fillMaxWidth(0.9f)
+                .graphicsLayer {
+                    shape = RoundedCornerShape(
+                        topStart = 20.dp, topEnd = 20.dp, bottomStart = 20.dp, bottomEnd = 20.dp
+                    )
+                    clip = true
+                }) {
                 screens.forEach { screen ->
                     AddItem(
                         screen = screen,
@@ -70,18 +68,23 @@ fun BottomBar(navController: NavHostController) {
 fun RowScope.AddItem(
     screen: BottomBarScreen, currentDestination: NavDestination?, navController: NavHostController
 ) {
+
+    val selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true
+
     BottomNavigationItem(
         label = {
             Text(text = screen.title, style = MaterialTheme.typography.h4)
         },
-        icon = {
-            Icon(
-                painter = painterResource(id = screen.icon), contentDescription = null
-            )
-        },
+
         selected = currentDestination?.hierarchy?.any {
             it.route == screen.route
         } == true,
+        icon = {
+            Icon(
+                imageVector = (if (selected) screen.iconFocused else screen.icon),
+                contentDescription = null
+            )
+        },
         unselectedContentColor = LocalContentColor.current.copy(alpha = ContentAlpha.disabled),
         onClick = {
             navController.navigate(screen.route) {

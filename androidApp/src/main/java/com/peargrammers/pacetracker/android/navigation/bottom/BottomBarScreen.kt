@@ -1,11 +1,36 @@
 package com.peargrammers.pacetracker.android.navigation.bottom
 
-import com.peargrammers.pacetracker.android.R
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Timer
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.material.icons.outlined.Timer
+import androidx.compose.ui.graphics.vector.ImageVector
 
-sealed class BottomBarScreen(val route: String, val icon: Int, val title: String) {
-    object Profile :
-        BottomBarScreen(Screen.ProfileScreen.route, R.drawable.ic_outline_home, "Profile")
+sealed class BottomBarScreen(
+    val route: String,
+    val icon: ImageVector,
+    val iconFocused: ImageVector,
+    val title: String
+) {
+    object Home :
+        BottomBarScreen("main_screen", Icons.Outlined.Home, Icons.Default.Home, "Home")
 
     object Settings :
-        BottomBarScreen(Screen.SettingsScreen.route, R.drawable.ic_timer, "Settings")
+        BottomBarScreen(
+            "settings_screen",
+            Icons.Outlined.Settings,
+            Icons.Default.Settings,
+            "Settings"
+        )
+
+    object Workouts :
+        BottomBarScreen(
+            "history_activities_screen",
+            Icons.Outlined.Timer,
+            Icons.Default.Timer,
+            "Activities"
+        )
 }

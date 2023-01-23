@@ -64,7 +64,10 @@ class MainActivity : ComponentActivity() {
                         BackgroundPrimary
                     )
                 ) {
-                    RootNavigationGraph(navController = navController)
+
+                    if (isBound) {
+                        RootNavigationGraph(navController = navController)
+                    }
                 }
             }
         }
