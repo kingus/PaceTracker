@@ -2,7 +2,6 @@ package com.peargrammers.pacetracker.android.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -22,13 +21,12 @@ import com.peargrammers.pacetracker.android.ui.theme.LightBlue
 import com.peargrammers.pacetracker.android.ui.theme.LightOrange
 
 @Composable
-@Preview
-
 fun RoundedIcon() {
     Row() {
         RoundImage(
             image = painterResource(R.drawable.ic_speed),
             modifier = Modifier.size(60.dp),
+            imageModifier = Modifier.size(10.dp),
             LightOrange,
             IntenseOrange
         )
@@ -36,6 +34,7 @@ fun RoundedIcon() {
         RoundImage(
             image = painterResource(R.drawable.ic_walk),
             modifier = Modifier.size(60.dp),
+            imageModifier = Modifier.padding(10.dp),
             LightBlue,
             IntenseBlue
         )
@@ -45,21 +44,23 @@ fun RoundedIcon() {
 
 @Composable
 fun RoundImage(
-    image: Painter, modifier: Modifier = Modifier, backgroundColor: Color, iconColor: Color
+    image: Painter,
+    modifier: Modifier = Modifier,
+    imageModifier: Modifier = Modifier,
+    backgroundColor: Color,
+    iconColor: Color
 ) {
     Box(
         modifier = modifier
             .clip(RoundedCornerShape(50.dp))
-            .border(width = 1.dp, color = Color.White, shape = RoundedCornerShape(50.dp))
             .background(backgroundColor)
     ) {
         Image(
             painter = image,
             contentDescription = null,
             colorFilter = ColorFilter.tint(iconColor),
-            modifier = modifier
+            modifier = imageModifier
                 .aspectRatio(1f, matchHeightConstraintsFirst = true)
-                .padding(16.dp)
                 .clip(CircleShape)
         )
     }

@@ -4,11 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.peargrammers.pacetracker.android.data.repository.TrainingRepository
 import com.peargrammers.pacetracker.android.service.LocationService
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 
-@HiltViewModel
-class TrainingViewModel @Inject constructor(repository: TrainingRepository) : ViewModel() {
+class TrainingViewModel (repository: TrainingRepository) : ViewModel() {
     private var _serviceState: MutableLiveData<LocationService.State> = repository.serviceState
     val serviceState: MutableLiveData<LocationService.State> = _serviceState
 

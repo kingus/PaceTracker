@@ -9,7 +9,7 @@ import com.peargrammers.pacetracker.android.ui.components.profile.RecentActivity
 import com.peargrammers.pacetracker.android.ui.components.profile.RecentActivityItemWithDate
 
 @Composable
-fun ProfileScreen(navController: NavController) {
+fun WorkoutsScreen(navController: NavController) {
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxSize()

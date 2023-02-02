@@ -5,21 +5,29 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.peargrammers.pacetracker.android.navigation.bottom.BottomBarScreen
-import com.peargrammers.pacetracker.android.ui.screens.ProfileScreen
+import com.peargrammers.pacetracker.android.ui.screens.MainScreen
 import com.peargrammers.pacetracker.android.ui.screens.SettingsScreen
+import com.peargrammers.pacetracker.android.ui.screens.WorkoutsScreen
 
 @Composable
 fun HomeNavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
         route = Graph.HOME,
-        startDestination = BottomBarScreen.Profile.route
+        startDestination = BottomBarScreen.Home.route
     ) {
-        composable(route = BottomBarScreen.Profile.route) {
-            ProfileScreen(navController = navController)
+        composable(route = BottomBarScreen.Home.route) {
+            MainScreen(navController = navController)
         }
         composable(route = BottomBarScreen.Settings.route) {
-            SettingsScreen(navController = navController)
+            SettingsScreen(onClick = {
+                navController.navigate(Graph.TRAINING)
+            })
         }
+        composable(route = BottomBarScreen.Workouts.route) {
+            WorkoutsScreen(navController = navController)
+        }
+        trainingNavGraph(navController = navController)
+
     }
 }

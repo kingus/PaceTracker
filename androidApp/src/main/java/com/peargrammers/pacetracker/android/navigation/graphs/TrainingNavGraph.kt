@@ -18,13 +18,17 @@ fun NavGraphBuilder.trainingNavGraph(navController: NavHostController) {
         }
         composable(route = TrainingScreen.TrainingForm.route) {
             TrainingFormScreen(
-                onClick = {
-                    navController.navigate(TrainingScreen.TrainingRunPeriodForm.route)
-                },
-                onConfirmClick = {
-//                    navController.popBackStack()
-                    navController.navigate(Graph.HOME)
-                })
+//                onClick = {
+//                    navController.navigate(TrainingScreen.TrainingRunPeriodForm.route)
+//                },
+//                onClickRun = {
+//                    navController.navigate(TrainingScreen.Training.route)
+//                },
+//                onConfirmClick = {
+////                    navController.popBackStack()
+//                    navController.navigate(Graph.HOME)
+//                }
+            )
         }
         composable(route = TrainingScreen.TrainingRunPeriodForm.route) {
             TrainingRunPeriodFormScreen(onClick = {
