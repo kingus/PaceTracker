@@ -22,6 +22,9 @@ kotlin {
             dependencies {
                 implementation("com.squareup.sqldelight:runtime:1.5.4")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+                api("io.insert-koin:koin-core:3.3.2")
+
             }
         }
         val commonTest by getting {
@@ -32,7 +35,6 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation("com.squareup.sqldelight:android-driver:1.5.4")
-
             }
         }
         val androidTest by getting
